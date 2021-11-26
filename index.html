@@ -4,9 +4,83 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello</h1>
+    <div id="title">
+      <h1>What to eat</h1>
+    </div>
+
+    <div id="filter">
+      <button id="filterBtn">Filter</button>
+      <table>
+        <tr>
+          <th>Price</th>
+          <th>Distance</th>
+          <th>Cuisine</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" id="price" />
+             
+            <label for="price">$</label>
+          </td>
+          <td>
+            <input type="radio" id="miles" />
+             
+            <label for="miles">5 miles</label>
+          </td>
+          <td>
+            <input type="radio" id="cuisine" />
+             
+            <label for="cuisine">Asian</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" id="price" />
+             
+            <label for="price">$$</label>
+          </td>
+          <td>
+            <input type="radio" id="miles" />
+             
+            <label for="miles">10 miles</label>
+          </td>
+          <td>
+            <input type="radio" id="cuisine" />
+             
+            <label for="cuisine">American</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" id="price" />
+             
+            <label for="price">$$$</label>
+          </td>
+          <td>
+            <input type="radio" id="miles" />
+             
+            <label for="miles">15 miles</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" id="price" />
+             
+            <label for="price">$$$$</label>
+          </td>
+          <td>
+            <input type="radio" id="miles" />
+             
+            <label for="miles">20 miles</label>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>
