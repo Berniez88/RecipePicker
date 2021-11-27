@@ -1,13 +1,8 @@
+import {createRadioBox} from "./radioBox.js"
+
 /**
  * Helper Functions
  */
-function createRadioBox(id) {
-    var radioBox = document.createElement("input")
-    radioBox.type = 'radio'
-    radioBox.id = id
-    return radioBox
-}
-
 function createLabel(labelText, id) {
     var cellLabel = document.createElement('label')
     cellLabel.htmlFor = id
