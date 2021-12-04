@@ -1,5 +1,6 @@
-import {createRadioBox} from "./radioBox.js"
+import {createRadioBox, radioBoxCheckClear} from "./radioBox.js"
 
+const listId = ["difficulty", "prepTime", "categories"]
 /**
  * Helper Functions
  */
@@ -20,17 +21,51 @@ export function createFilter() {
     var filterButton = document.createElement("button")
     filterButton.innerText = "Filter"
     filterButton.id = "filterButton"
+    // filterButton.className = "btn"
     filterButton.onclick = () => {
-        const currTable = document.getElementById("filterTable")
+        const currTable = document.getElementById("filterBox")
         currTable.style.display = (currTable.style.display === "none")?"block":"none"
     }
 
+    /**
+     * Creating Filter Section/Box
+     */
+    var filterSection = document.createElement("div")
+    filterSection.id = "filterBox"
+    filterSection.style.display = "none"
+
+    var filterButtonSection = document.createElement("div")
+    filterButtonSection.id = "filterBtnSection"
+
+    /**
+     * Create Clear and Apply button 
+     */
+    var clearButton = document.createElement("button")
+    clearButton.id = "filterClearButton"
+    clearButton.innerText = "Clear"
+    clearButton.className = "btn"
+    clearButton.onclick = () => {
+        for (var index = 0; index < listId.length; index++) {
+            var id = listId[index]
+            radioBoxCheckClear(id)
+        }
+    }
+
+    var applyButton = document.createElement("button")
+    applyButton.id = "filterApplyButton"
+    applyButton.innerText = "Apply"
+    applyButton.className = "btn"
+    applyButton.onclick = () => {
+        filterButton.onclick()
+    }
+
+    filterButtonSection.appendChild(clearButton)
+    filterButtonSection.appendChild(applyButton)
     /**
      * Create table to contains the filter
      */
     var filterTable = document.createElement("table")
     filterTable.id = "filterTable"
-    filterTable.style.display = "none"
 
     var filterHeaders = ["Difficulty", "Time", "Categories"]
     var difficulty = ["Easy", "Medium", "Hard"]
@@ -72,8 +107,11 @@ export function createFilter() {
         
     }
 
+    filterSection.appendChild(filterTable)
+    filterSection.appendChild(filterButtonSection)
+
     filterDiv.appendChild(filterButton)
-    filterDiv.appendChild(filterTable)
+    filterDiv.appendChild(filterSection)
 
     return filterDiv
 }

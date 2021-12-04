@@ -10,7 +10,7 @@ export function createRadioBox(id) {
     return radioBox
 }
 
-function radioBoxCheckClear(id) {
+export function radioBoxCheckClear(id) {
     var rBoxs = document.querySelectorAll(`input[id=${id}]`)
     for (var rb of rBoxs) {
         rb.checked = false
