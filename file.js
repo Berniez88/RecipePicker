@@ -33,24 +33,12 @@ async function loadRecipes() {
 // });
 
 //* Working Code
-export function addRecipes() {
-  document.addEventListener("DOMContentLoaded", async () => {
-    let recipes = [];
-    console.log();
-    let allData = document.querySelector("#allData");
-
-    recipes = await loadRecipes();
-    for (var k in recipes) {
-      var temp = "";
-
-      for (var entry in recipes[k]) {
-        temp = temp + recipes[k][entry] + " | ";
-      }
-      var pTag = document.createElement("p");
-      pTag.textContent = temp;
-      allData.appendChild(pTag);
-    }
-
-    console.log(recipes);
-  });
+export async function cleanUpRecipe() {
+  let recipeDict = {};
+  let recipes = await loadRecipes();
+  for (let singleRecipe in recipes) {
+    // add new entry name = key value = all the attributes
+    recipeDict[recipes[singleRecipe]["Name"]] = recipes[singleRecipe];
+  }
+  return recipeDict;
 }
